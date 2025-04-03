@@ -222,7 +222,32 @@ class Accessibility:
 
 @dataclass
 class MCPLaw:
-    identification_and_basic_data: IdentificationAndBasicData
+    """Model for representing a law in the MCP system."""
+    metadata: Dict[str, Any]
+    content: Dict[str, Any]
+    
+    def __post_init__(self):
+        """Validate the law data after initialization."""
+        required_metadata = [
+            "name_of_law",
+            "citation_title",
+            "date_of_entry_into_force",
+            "regulatory_authority",
+            "legal_domain",
+            "identification_number"
+        ]
+        
+        for field in required_metadata:
+            if field not in self.metadata:
+                self.metadata[field] = "Unknown"
+        
+        if "articles" not in self.content:
+            self.content["articles"] = []
+        if "chapters" not in self.content:
+            self.content["chapters"] = []
+        if "sections" not in self.content:
+            self.content["sections"] = []
+
     historical_context: HistoricalContext = field(default_factory=HistoricalContext)
     content_mapping: ContentMapping = field(default_factory=ContentMapping)
     interpretative_context: InterpretativeContext = field(default_factory=InterpretativeContext)

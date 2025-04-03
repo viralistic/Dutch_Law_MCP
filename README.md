@@ -1,35 +1,89 @@
-# Dutch Law MCP (Modern Context Protocol)
-An unofficial MCP server for Dutch Law to get reliable output for your AI agents. Made by Marrallisa Kreijkes
+# Dutch Legal Assistant (MCP)
 
-A structured framework for contextualizing, understanding, and applying Dutch legislation, designed for AI agents and legal professionals.
+A web-based legal assistant that helps users understand Dutch legislation and get advice on legal situations.
 
-What is MCP?
-The Modern Context Protocol (MCP) is a standardized method for enriching legal texts with contextual information, making them more accessible, comprehensible, and usable for various audiences, from legal professionals to AI systems.
+## Features
 
-Repository Structure
+- Natural language processing of legal queries
+- Analysis of legal situations based on Dutch law
+- Categorization of legal issues
+- Relevant law references and advice
+- History tracking of queries
+- Downloadable legal advice documents
+- Modern, responsive web interface
 
-docs/: Documentation on how to use and contribute to the MCP framework
-src/: Core MCP schema and implementation
-examples/: Example implementations of MCP for specific Dutch laws
+## Installation
 
-MCP Components
-The MCP consists of eight main sections:
+1. Clone the repository:
 
-Identification & Basic Data: Essential metadata about the law
-Historical Context: Origin and development of the law
-Content Mapping: Structural and semantic analysis
-Interpretative Context: Case law and legal doctrine
-Practical Application: Implementation and societal impact
-Digital Integration: Technical specifications for digital access
-Future Perspective: Planned developments and challenges
-Accessibility: Linguistic aspects and inclusivity
+```bash
+git clone https://github.com/yourusername/Dutch_Law_MCP.git
+cd Dutch_Law_MCP
+```
 
-Getting Started
-To use this framework:
+2. Create and activate a virtual environment (optional but recommended):
 
-Clone this repository
-Explore the examples/ directory to understand implementation patterns
-Follow documentation in docs/ to create an MCP for a specific law
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-Contributing
-Contributions to improve the Dutch Law MCP framework are welcome. Please see our contribution guidelines in docs/CONTRIBUTING.md.
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+1. Start the Flask application:
+
+```bash
+PYTHONPATH=$PYTHONPATH:. python src/web/app.py
+```
+
+2. Open your web browser and navigate to:
+
+```
+http://localhost:5000
+```
+
+3. Enter your legal situation in the text area and click "Analyze" or press Ctrl/Cmd + Enter.
+
+4. View the analysis results, including:
+
+   - Relevant legal categories
+   - Applicable laws
+   - Legal advice
+   - References
+
+5. Download the legal advice as a text document using the "Download Advice" button.
+
+6. Clear your query history using the "Clear History" button.
+
+## Project Structure
+
+```
+src/
+├── web/
+│   ├── templates/
+│   │   └── index.html
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   └── js/
+│   │       └── script.js
+│   └── app.py
+├── models/
+│   ├── law_model.py
+│   └── wetten_parser.py
+└── legal_assistant.py
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dutch Legal Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-600">Dutch Legal Assistant</h1>
+            <p class="text-gray-600 mt-2">Krijg juridisch advies op basis van Nederlandse wetgeving</p>
+        </header>
+
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-6">
+                <label for="situation" class="block text-gray-700 font-semibold mb-2">Beschrijf uw juridische situatie:</label>
+                <textarea id="situation" class="w-full h-32 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Bijvoorbeeld: Ik word gediscrimineerd op mijn werk vanwege mijn leeftijd..."></textarea>
+                <div class="mt-4 flex justify-between">
+                    <button id="analyze" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Analyseren
+                    </button>
+                    <button id="clear-history" class="text-gray-600 hover:text-gray-800 transition-colors">
+                        Geschiedenis wissen
+                    </button>
+                </div>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="flex items-center justify-center py-4">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <span class="ml-2 text-gray-600">Analyseren...</span>
+                </div>
+            </div>
+
+            <div id="result" class="hidden">
+                <div class="border-t pt-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Analyse Resultaat</h2>
+                    
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-gray-700">Relevante Categorieën:</h3>
+                        <div id="categories" class="mt-2 flex flex-wrap gap-2"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-gray-700">Relevante Wetten:</h3>
+                        <ul id="laws" class="mt-2 list-disc list-inside"></ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-gray-700">Advies:</h3>
+                        <div id="advice" class="mt-2 text-gray-600 whitespace-pre-line"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-gray-700">Referenties:</h3>
+                        <div id="references" class="mt-2 space-y-4"></div>
+                    </div>
+
+                    <div class="mt-6">
+                        <button id="download" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            Download Advies
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="history" class="max-w-4xl mx-auto mt-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Geschiedenis</h2>
+            <div class="space-y-4">
+                {% for entry in history %}
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="font-semibold text-gray-800">Situatie:</div>
+                    <div class="text-gray-600 mb-4">{{ entry.situation }}</div>
+                    
+                    <div class="font-semibold text-gray-800">Categorieën:</div>
+                    <div class="text-gray-600 mb-2">{{ ', '.join(entry.response.categories) }}</div>
+                    
+                    <div class="font-semibold text-gray-800">Advies:</div>
+                    <div class="text-gray-600 whitespace-pre-line">{{ entry.response.advice }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 

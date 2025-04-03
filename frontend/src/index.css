@@ -1,0 +1,169 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 200 14% 87%;  /* C2D4DB */
+    --foreground: 228 39% 15%;  /* 161A33 */
+
+    --card: 203 33% 94%;  /* E7F0F5 */
+    --card-foreground: 228 39% 15%;  /* 161A33 */
+
+    --popover: 203 33% 94%;  /* E7F0F5 */
+    --popover-foreground: 228 39% 15%;  /* 161A33 */
+
+    --primary: 228 39% 15%;  /* 161A33 */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 203 33% 94%;  /* E7F0F5 */
+    --secondary-foreground: 228 39% 15%;  /* 161A33 */
+
+    --muted: 200 14% 92%;
+    --muted-foreground: 228 39% 40%;
+
+    --accent: 203 33% 94%;  /* E7F0F5 */
+    --accent-foreground: 228 39% 15%;  /* 161A33 */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 200 14% 80%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 228 39% 15%;  /* 161A33 */
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --glow-color: 0 78% 47%;  /* DC1616 */
+  }
+
+  .dark {
+    --background: 228 39% 15%;  /* 161A33 */
+    --foreground: 203 33% 94%;  /* E7F0F5 */
+
+    --card: 228 39% 20%;
+    --card-foreground: 203 33% 94%;  /* E7F0F5 */
+
+    --popover: 228 39% 20%;
+    --popover-foreground: 203 33% 94%;  /* E7F0F5 */
+
+    --primary: 203 33% 94%;  /* E7F0F5 */
+    --primary-foreground: 228 39% 15%;  /* 161A33 */
+
+    --secondary: 228 39% 25%;
+    --secondary-foreground: 203 33% 94%;  /* E7F0F5 */
+
+    --muted: 228 39% 25%;
+    --muted-foreground: 203 33% 80%;
+
+    --accent: 228 39% 25%;
+    --accent-foreground: 203 33% 94%;  /* E7F0F5 */
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 203 33% 94%;  /* E7F0F5 */
+
+    --border: 228 39% 25%;
+    --input: 228 39% 25%;
+    --ring: 203 33% 80%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Custom styles for our Dutch Law MCP website */
+.gradient-bg {
+  background: linear-gradient(135deg, #c2d4db 0%, #e7f0f5 100%);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, #161a33, #394066);
+}
+
+/* Animated search bar styles */
+.search-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.search-container:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.search-input {
+  background: linear-gradient(to right, rgba(231, 240, 245, 0.9), rgba(231, 240, 245, 0.95));
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Glow border animation */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; filter: blur(8px); }
+  50% { opacity: 0.8; filter: blur(12px); }
+}
+
+.glow-border {
+  animation: glow-pulse 3s infinite;
+}
+
+/* Common questions dropdown */
+.common-questions {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.common-questions.open {
+  max-height: 300px;
+}
+
+.question-item {
+  transition: background-color 0.2s ease;
+}
+
+.question-item:hover {
+  background-color: rgba(194, 212, 219, 0.3);
+}

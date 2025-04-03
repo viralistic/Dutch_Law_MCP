@@ -2,7 +2,26 @@
 
 A web-based legal assistant that helps users understand Dutch legislation and get advice on legal situations.
 
-## Features
+## Project Structure
+
+This is a monorepo containing both the backend API (Flask) and frontend application (React):
+
+```
+Dutch_Law_MCP/
+├── backend/           # Flask backend API
+│   ├── src/
+│   │   ├── models/   # Law models and parsers
+│   │   ├── web/      # Flask application
+│   │   └── ...
+│   └── requirements.txt
+├── frontend/         # React frontend application
+│   ├── src/
+│   ├── public/
+│   └── package.json
+└── README.md
+```
+
+## Backend Features
 
 - Natural language processing of legal queries
 - Analysis of legal situations based on Dutch law
@@ -10,15 +29,24 @@ A web-based legal assistant that helps users understand Dutch legislation and ge
 - Relevant law references and advice
 - History tracking of queries
 - Downloadable legal advice documents
+- RESTful API endpoints
+
+## Frontend Features
+
 - Modern, responsive web interface
+- Interactive legal query submission
+- Real-time analysis results
+- Downloadable advice documents
+- Mobile-friendly design
 
 ## Installation
 
-1. Clone the repository:
+### Backend Setup
+
+1. Navigate to the backend directory:
 
 ```bash
-git clone https://github.com/yourusername/Dutch_Law_MCP.git
-cd Dutch_Law_MCP
+cd backend
 ```
 
 2. Create and activate a virtual environment (optional but recommended):
@@ -34,51 +62,43 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Usage
-
-1. Start the Flask application:
+4. Start the Flask application:
 
 ```bash
 PYTHONPATH=$PYTHONPATH:. python src/web/app.py
 ```
 
-2. Open your web browser and navigate to:
+### Frontend Setup
 
+1. Navigate to the frontend directory:
+
+```bash
+cd frontend
 ```
-http://localhost:5000
+
+2. Install dependencies:
+
+```bash
+npm install
 ```
 
-3. Enter your legal situation in the text area and click "Analyze" or press Ctrl/Cmd + Enter.
+3. Start the development server:
 
-4. View the analysis results, including:
-
-   - Relevant legal categories
-   - Applicable laws
-   - Legal advice
-   - References
-
-5. Download the legal advice as a text document using the "Download Advice" button.
-
-6. Clear your query history using the "Clear History" button.
-
-## Project Structure
-
+```bash
+npm run dev
 ```
-src/
-├── web/
-│   ├── templates/
-│   │   └── index.html
-│   ├── static/
-│   │   ├── css/
-│   │   │   └── style.css
-│   │   └── js/
-│   │       └── script.js
-│   └── app.py
-├── models/
-│   ├── law_model.py
-│   └── wetten_parser.py
-└── legal_assistant.py
-```
+
+## Usage
+
+1. Start both the backend and frontend servers following the installation instructions above.
+
+2. Open your web browser and navigate to the frontend application (default: http://localhost:3000)
+
+3. Use the interface to:
+   - Enter your legal situation
+   - Get analysis and advice
+   - View relevant laws and references
+   - Download detailed advice documents
 
 ## Contributing
 

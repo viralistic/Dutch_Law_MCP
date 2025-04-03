@@ -2,10 +2,12 @@
 Web interface for the Dutch Legal Assistant.
 """
 from flask import Flask, render_template, request, jsonify, session
+from flask_cors import CORS
 from src.test_legal_assistant import LegalAssistant
 import uuid
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)  # Allow all origins during development
 app.secret_key = 'your-secret-key-here'  # Change this to a secure secret key in production
 
 # Initialize the legal assistant

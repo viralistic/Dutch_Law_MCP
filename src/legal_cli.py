@@ -27,24 +27,24 @@ def main():
         print("=" * 50)
         
         # Get relevant categories and laws
-        categories = assistant._identify_relevant_categories(situation)
-        expanded_categories = assistant._expand_categories(categories)
-        relevant_laws = assistant._get_relevant_laws(expanded_categories)
+        categories = assistant.identify_relevant_categories(situation)
+        expanded_categories = assistant.expand_categories(categories)
+        laws = assistant.fetch_relevant_laws(expanded_categories)
         
         # Print results
         print("\nRelevant categories:", ', '.join(expanded_categories))
         print("\nRelevant laws:")
-        for law in relevant_laws:
+        for law in laws:
             print(f"- {law.metadata['name_of_law']} ({law.metadata['citation_title']})")
         
         # Generate and print advice
         print("\nAdvice:")
-        advice = assistant._generate_advice(situation, expanded_categories, relevant_laws)
+        advice = assistant.generate_advice(situation, expanded_categories, laws)
         print(advice)
         
         if args.verbose:
             print("\nDetailed References:")
-            for law in relevant_laws:
+            for law in laws:
                 print(f"\n{law.metadata['name_of_law']} ({law.metadata['citation_title']})")
                 print(f"  BWB ID: {law.metadata['identification_number']}")
                 print(f"  Domain: {law.metadata['legal_domain']}")

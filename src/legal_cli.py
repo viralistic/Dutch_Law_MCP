@@ -27,29 +27,30 @@ def main():
         print("=" * 50)
         
         # Get relevant categories and laws
-        categories = assistant.identify_relevant_categories(situation)
-        expanded_categories = assistant.expand_categories(categories)
-        laws = assistant.fetch_relevant_laws(expanded_categories)
+        categories = assistant._identify_relevant_categories(situation)
+        expanded_categories = assistant._expand_categories(categories)
+        
+        # Analyze the situation and get results
+        result = assistant.analyze_situation(situation)
         
         # Print results
-        print("\nRelevant categories:", ', '.join(expanded_categories))
+        print("\nRelevant categories:", ', '.join(result['relevant_categories']))
         print("\nRelevant laws:")
-        for law in laws:
-            print(f"- {law.metadata['name_of_law']} ({law.metadata['citation_title']})")
+        for law_name in result['relevant_laws']:
+            print(f"- {law_name}")
         
-        # Generate and print advice
+        # Print advice
         print("\nAdvice:")
-        advice = assistant.generate_advice(situation, expanded_categories, laws)
-        print(advice)
+        print(result['advice'])
         
         if args.verbose:
             print("\nDetailed References:")
-            for law in laws:
-                print(f"\n{law.metadata['name_of_law']} ({law.metadata['citation_title']})")
-                print(f"  BWB ID: {law.metadata['identification_number']}")
-                print(f"  Domain: {law.metadata['legal_domain']}")
-                print(f"  Entry into force: {law.metadata['date_of_entry_into_force']}")
-                print(f"  Regulatory authority: {law.metadata['regulatory_authority']}")
+            for ref in result['references']:
+                print(f"\n{ref['name_of_law']} ({ref['citation_title']})")
+                print(f"  BWB ID: {ref['identification_number']}")
+                print(f"  Domain: {ref['legal_domain']}")
+                print(f"  Entry into force: {ref['date_of_entry_into_force']}")
+                print(f"  Regulatory authority: {ref['regulatory_authority']}")
         
     except Exception as e:
         print(f"\nError: {str(e)}", file=sys.stderr)

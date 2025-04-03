@@ -53,49 +53,71 @@ class WettenParser:
             "legal_domain": "Other"
         }
         
+        # Dutch month names mapping
+        self.dutch_months = {
+            'januari': '01',
+            'februari': '02',
+            'maart': '03',
+            'april': '04',
+            'mei': '05',
+            'juni': '06',
+            'juli': '07',
+            'augustus': '08',
+            'september': '09',
+            'oktober': '10',
+            'november': '11',
+            'december': '12'
+        }
+        
         # Common law names and their metadata
-        self.law_metadata = {
+        self.common_laws = {
             "BWBR0005537": {
                 "name_of_law": "Algemene wet bestuursrecht",
                 "citation_title": "Awb",
                 "date_of_entry_into_force": "1994-01-01",
                 "regulatory_authority": "Ministerie van Justitie en Veiligheid",
-                "legal_domain": "Administrative Law"
+                "legal_domain": "Administrative Law",
+                "identification_number": "BWBR0005537"
             },
             "BWBR0005291": {
                 "name_of_law": "Burgerlijk Wetboek",
                 "citation_title": "BW",
                 "date_of_entry_into_force": "1992-01-01",
                 "regulatory_authority": "Ministerie van Justitie en Veiligheid",
-                "legal_domain": "Civil Law"
+                "legal_domain": "Civil Law",
+                "identification_number": "BWBR0005291"
             },
             "BWBR0001854": {
                 "name_of_law": "Wetboek van Strafrecht",
                 "citation_title": "Sr",
                 "date_of_entry_into_force": "1886-09-01",
                 "regulatory_authority": "Ministerie van Justitie en Veiligheid",
-                "legal_domain": "Criminal Law"
+                "legal_domain": "Criminal Law",
+                "identification_number": "BWBR0001854"
             },
             "BWBR0001840": {
                 "name_of_law": "Grondwet",
                 "citation_title": "Gw",
                 "date_of_entry_into_force": "1815-03-24",
                 "regulatory_authority": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
-                "legal_domain": "Constitutional Law"
+                "legal_domain": "Constitutional Law",
+                "identification_number": "BWBR0001840"
             },
             "BWBR0009405": {
                 "name_of_law": "Wet op de arbeidsovereenkomst",
                 "citation_title": "BW7",
-                "date_of_entry_into_force": "1907-11-01",
+                "date_of_entry_into_force": "1907-07-13",
                 "regulatory_authority": "Ministerie van Sociale Zaken en Werkgelegenheid",
-                "legal_domain": "Employment Law"
+                "legal_domain": "Employment Law",
+                "identification_number": "BWBR0009405"
             },
             "BWBR0006502": {
                 "name_of_law": "Algemene wet gelijke behandeling",
                 "citation_title": "AWGB",
-                "date_of_entry_into_force": "1994-09-02",
+                "date_of_entry_into_force": "1994-09-01",
                 "regulatory_authority": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
-                "legal_domain": "Equal Treatment Law"
+                "legal_domain": "Equal Treatment Law",
+                "identification_number": "BWBR0006502"
             }
         }
     
@@ -321,8 +343,8 @@ class WettenParser:
             
             # If no date found, check if this is a common law with known date
             bwb_match = re.search(r'BWBR\d+', text)
-            if bwb_match and bwb_match.group(0) in self.law_metadata:
-                return self.law_metadata[bwb_match.group(0)]["date_of_entry_into_force"]
+            if bwb_match and bwb_match.group(0) in self.common_laws:
+                return self.common_laws[bwb_match.group(0)]["date_of_entry_into_force"]
             
         except Exception as e:
             logger.error(f"Error parsing date from text '{text}': {e}")
@@ -486,9 +508,8 @@ class WettenParser:
     
     def _get_default_metadata(self, bwb_id: str) -> Dict[str, Any]:
         """Get default metadata for a BWB ID."""
-        if bwb_id in self.law_metadata:
-            metadata = self.law_metadata[bwb_id].copy()
-            metadata["identification_number"] = bwb_id
+        if bwb_id in self.common_laws:
+            metadata = self.common_laws[bwb_id].copy()
             metadata["date_of_entry_into_force"] = "Unknown"
             return metadata
         else:

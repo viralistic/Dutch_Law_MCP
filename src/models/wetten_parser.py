@@ -509,13 +509,16 @@ class WettenParser:
     def _get_default_metadata(self, bwb_id: str) -> Dict[str, Any]:
         """Get default metadata for a BWB ID."""
         if bwb_id in self.common_laws:
-            metadata = self.common_laws[bwb_id].copy()
-            metadata["date_of_entry_into_force"] = "Unknown"
-            return metadata
-        else:
-            metadata = self.default_metadata.copy()
-            metadata["identification_number"] = bwb_id
-            return metadata
+            return self.common_laws[bwb_id].copy()
+        
+        return {
+            "name_of_law": "Unknown Law",
+            "citation_title": "Unknown",
+            "date_of_entry_into_force": "Unknown",
+            "regulatory_authority": "Unknown",
+            "legal_domain": "Unknown",
+            "identification_number": bwb_id
+        }
     
     def _determine_law_type(self, law_name: str) -> str:
         """Determine the type of law based on its name."""

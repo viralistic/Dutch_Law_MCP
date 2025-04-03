@@ -1,0 +1,334 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Dutch Law MCP Schema",
+    "description": "Schema for the Modern Context Protocol for Dutch legislation",
+    "type": "object",
+    "required": [
+      "identificationAndBasicData",
+      "historicalContext",
+      "contentMapping",
+      "interpretativeContext",
+      "practicalApplication",
+      "digitalIntegration",
+      "futurePerspective",
+      "accessibility"
+    ],
+    "properties": {
+      "identificationAndBasicData": {
+        "type": "object",
+        "required": ["metadata", "hierarchicalPosition"],
+        "properties": {
+          "metadata": {
+            "type": "object",
+            "required": [
+              "nameOfLaw",
+              "citationTitle",
+              "identificationNumber",
+              "legalDomain",
+              "regulatoryAuthority",
+              "dateOfEntryIntoForce",
+              "version",
+              "status"
+            ],
+            "properties": {
+              "nameOfLaw": { "type": "string" },
+              "citationTitle": { "type": "string" },
+              "identificationNumber": { "type": "string" },
+              "legalDomain": { "type": "string" },
+              "regulatoryAuthority": { "type": "string" },
+              "dateOfEntryIntoForce": { "type": "string", "format": "date" },
+              "version": { "type": "string" },
+              "status": { 
+                "type": "string",
+                "enum": ["In force", "Repealed", "Future"]
+              }
+            }
+          },
+          "hierarchicalPosition": {
+            "type": "object",
+            "properties": {
+              "relationshipToConstitution": { "type": "string" },
+              "relationshipToEULaw": { "type": "string" },
+              "relationshipToInternationalTreaties": { "type": "string" },
+              "positionWithinNationalLegislation": { "type": "string" }
+            }
+          }
+        }
+      },
+      "historicalContext": {
+        "type": "object",
+        "properties": {
+          "legislativeHistory": {
+            "type": "object",
+            "properties": {
+              "initiator": { "type": "string" },
+              "reason": { "type": "string" },
+              "bill": { "type": "string" },
+              "parliamentaryTreatment": { "type": "string" },
+              "importantChanges": { "type": "string" }
+            }
+          },
+          "amendmentHistory": {
+            "type": "object",
+            "properties": {
+              "amendments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": { "type": "string", "format": "date" },
+                    "description": { "type": "string" },
+                    "reference": { "type": "string" }
+                  }
+                }
+              },
+              "plannedAmendments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": { "type": "string", "format": "date" },
+                    "description": { "type": "string" },
+                    "status": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "contentMapping": {
+        "type": "object",
+        "properties": {
+          "structuralOverview": {
+            "type": "object",
+            "properties": {
+              "chapterStructure": { "type": "string" },
+              "coreProvisions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "article": { "type": "string" },
+                    "description": { "type": "string" }
+                  }
+                }
+              },
+              "definitions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "term": { "type": "string" },
+                    "definition": { "type": "string" }
+                  }
+                }
+              },
+              "delegationProvisions": { 
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "semanticRelationships": {
+            "type": "object",
+            "properties": {
+              "conceptualCategories": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "category": { "type": "string" },
+                    "concepts": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                }
+              },
+              "legalRelationships": { "type": "string" },
+              "proceduralFlowcharts": { "type": "string" }
+            }
+          }
+        }
+      },
+      "interpretativeContext": {
+        "type": "object",
+        "properties": {
+          "caseLaw": {
+            "type": "object",
+            "properties": {
+              "landmarkCases": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "case": { "type": "string" },
+                    "reference": { "type": "string" },
+                    "significance": { "type": "string" }
+                  }
+                }
+              },
+              "supremeCourtOpinions": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "internationalCaseLaw": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "doctrine": {
+            "type": "object",
+            "properties": {
+              "keyLiterature": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "academicViews": { "type": "string" },
+              "relevantAnnotations": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "practicalApplication": {
+        "type": "object",
+        "properties": {
+          "implementationPractice": {
+            "type": "object",
+            "properties": {
+              "responsibleAuthorities": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "policyRules": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "supervisionAndEnforcement": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "societalImpact": {
+            "type": "object",
+            "properties": {
+              "targetGroups": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "practicalIssues": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "evaluations": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "digitalIntegration": {
+        "type": "object",
+        "properties": {
+          "technicalSpecifications": {
+            "type": "object",
+            "properties": {
+              "apiAccess": { "type": "string" },
+              "linkedData": { "type": "string" },
+              "persistentIdentifiers": { "type": "string" }
+            }
+          },
+          "userInteraction": {
+            "type": "object",
+            "properties": {
+              "visualizationTools": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "searchMethods": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "notificationSystems": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "futurePerspective": {
+        "type": "object",
+        "properties": {
+          "plannedDevelopments": {
+            "type": "object",
+            "properties": {
+              "intendedChanges": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "currentPolicyDiscussions": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "innovativeApplications": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "risksAndOpportunities": {
+            "type": "object",
+            "properties": {
+              "identifiedGaps": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "technologicalChallenges": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "harmonizationPossibilities": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "accessibility": {
+        "type": "object",
+        "properties": {
+          "linguisticAspects": {
+            "type": "object",
+            "properties": {
+              "readabilityIndex": { "type": "string" },
+              "alternativesInPlainLanguage": { "type": "string" },
+              "multilingualVersions": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "inclusivity": {
+            "type": "object",
+            "properties": {
+              "accessibilityForPeopleWithDisabilities": { "type": "string" },
+              "culturalContext": { "type": "string" },
+              "educationalResources": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

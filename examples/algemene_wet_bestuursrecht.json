@@ -1,0 +1,243 @@
+{
+    "identificationAndBasicData": {
+      "metadata": {
+        "nameOfLaw": "Algemene wet bestuursrecht",
+        "citationTitle": "Awb",
+        "identificationNumber": "BWBR0005537",
+        "legalDomain": "Administrative Law",
+        "regulatoryAuthority": "Ministry of Justice and Security",
+        "dateOfEntryIntoForce": "1994-01-01",
+        "version": "2023-07-01",
+        "status": "In force"
+      },
+      "hierarchicalPosition": {
+        "relationshipToConstitution": "Based on Article 107 of the Dutch Constitution",
+        "relationshipToEULaw": "Implements various EU directives on procedural rights",
+        "relationshipToInternationalTreaties": "Takes into account ECHR Article 6 (fair trial)",
+        "positionWithinNationalLegislation": "Framework law for administrative procedures"
+      }
+    },
+    "historicalContext": {
+      "legislativeHistory": {
+        "initiator": "Government",
+        "reason": "Need for codification and harmonization of administrative law",
+        "bill": "Kamerstukken II 1988/89, 21221",
+        "parliamentaryTreatment": "Extensive parliamentary debate 1989-1992",
+        "importantChanges": "Phased implementation process from 1994-2005"
+      },
+      "amendmentHistory": {
+        "amendments": [
+          {
+            "date": "2013-07-01",
+            "description": "Introduction of digital communication provisions",
+            "reference": "Staatsblad 2013, 226"
+          },
+          {
+            "date": "2016-07-01",
+            "description": "Revision of regulatory enforcement provisions",
+            "reference": "Staatsblad 2016, 193"
+          }
+        ],
+        "plannedAmendments": [
+          {
+            "date": "2025-01-01",
+            "description": "Further digitalization amendments",
+            "status": "Bill in preparation"
+          }
+        ]
+      }
+    },
+    "contentMapping": {
+      "structuralOverview": {
+        "chapterStructure": "9 chapters covering definitions, basic principles, decision-making, legal protection, enforcement",
+        "coreProvisions": [
+          {
+            "article": "Article 1:3",
+            "description": "Definition of administrative decision ('besluit')"
+          },
+          {
+            "article": "Article 3:2",
+            "description": "Due care principle for decision-making"
+          },
+          {
+            "article": "Article 8:1",
+            "description": "Right to appeal to administrative court"
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Bestuursorgaan (Administrative body)",
+            "definition": "Article 1:1 - A body of a legal person established under public law, or another person or body vested with public authority"
+          },
+          {
+            "term": "Belanghebbende (Interested party)",
+            "definition": "Article 1:2 - Person whose interest is directly affected by a decision"
+          }
+        ],
+        "delegationProvisions": [
+          "Article 6:15 (transfer of appeals)",
+          "Article 8:5 (exceptions to right of appeal)"
+        ]
+      },
+      "semanticRelationships": {
+        "conceptualCategories": [
+          {
+            "category": "Decision-making principles",
+            "concepts": [
+              "Zorgvuldigheidsbeginsel (Principle of due care)",
+              "Motiveringsbeginsel (Motivation principle)",
+              "Evenredigheidsbeginsel (Proportionality principle)"
+            ]
+          }
+        ],
+        "legalRelationships": "Hierarchical relationship between primary decision, objection, and appeal stages",
+        "proceduralFlowcharts": "See separate documentation for workflow diagrams"
+      }
+    },
+    "interpretativeContext": {
+      "caseLaw": {
+        "landmarkCases": [
+          {
+            "case": "Benthem v. Netherlands",
+            "reference": "ECHR 23 October 1985, no. 8848/80",
+            "significance": "Led to major reform of administrative legal protection"
+          },
+          {
+            "case": "Hoge Raad 19 October 2007",
+            "reference": "ECLI:NL:HR:2007:BA7024",
+            "significance": "Key ruling on application of due care principle"
+          }
+        ],
+        "supremeCourtOpinions": [
+          "ECLI:NL:RVS:2017:1259 on digital communication",
+          "ECLI:NL:RVS:2019:1565 on environmental impact assessment"
+        ],
+        "internationalCaseLaw": [
+          "CJEU Case C-378/17 on administrative penalties",
+          "ECHR Öneryıldız v. Turkey on state liability in administrative context"
+        ]
+      },
+      "doctrine": {
+        "keyLiterature": [
+          "Damen et al., 'Bestuursrecht 1' (System of Administrative Law)",
+          "Schlössels & Zijlstra, 'Onderwijseditie Algemene wet bestuursrecht'"
+        ],
+        "academicViews": "Generally positive about the codification process, with ongoing discussion about the scope of judicial review",
+        "relevantAnnotations": [
+          "AB 2020/121 (T. Barkhuysen)",
+          "JB 2019/65 (R.J.N. Schlössels)"
+        ]
+      }
+    },
+    "practicalApplication": {
+      "implementationPractice": {
+        "responsibleAuthorities": [
+          "All administrative bodies (ministries, municipalities, provinces, water boards, independent administrative bodies)"
+        ],
+        "policyRules": [
+          "Many authorities have specific policy rules (beleidsregels) for implementation",
+          "Aanwijzingen voor de regelgeving (Guidelines for regulations)"
+        ],
+        "supervisionAndEnforcement": [
+          "Administrative courts (rechtbanken, ABRvS, CRvB, CBb)",
+          "National Ombudsman",
+          "Internal complaint procedures (Chapter 9 Awb)"
+        ]
+      },
+      "societalImpact": {
+        "targetGroups": [
+          "Citizens interacting with government",
+          "Businesses subject to permits, subsidies, or enforcement",
+          "Government bodies",
+          "Legal professionals"
+        ],
+        "practicalIssues": [
+          "Complexity for ordinary citizens",
+          "Tension between procedural safeguards and administrative efficiency",
+          "Digital accessibility challenges"
+        ],
+        "evaluations": [
+          "Third evaluation committee report (2007)",
+          "Annual jurisprudence analyses by major law firms",
+          "Academic research programs at multiple universities"
+        ]
+      }
+    },
+    "digitalIntegration": {
+      "technicalSpecifications": {
+        "apiAccess": "Available through wetten.nl API and KOOP open data platform",
+        "linkedData": "RDF representation available through LinkedData.overheid.nl",
+        "persistentIdentifiers": "Uses BWB identifiers for stable references"
+      },
+      "userInteraction": {
+        "visualizationTools": [
+          "Legal Intelligence platform",
+          "wetten.nl timeline visualizer"
+        ],
+        "searchMethods": [
+          "Full-text search with filters on wetten.nl",
+          "Semantic search via legal research platforms",
+          "Article-based navigation"
+        ],
+        "notificationSystems": [
+          "Email alerts available for changes through overheid.nl",
+          "Professional services offer change monitoring"
+        ]
+      }
+    },
+    "futurePerspective": {
+      "plannedDevelopments": {
+        "intendedChanges": [
+          "Further digitalization of procedures",
+          "Integration with Omgevingswet (Environment and Planning Act)",
+          "Simplification of objection procedures"
+        ],
+        "currentPolicyDiscussions": [
+          "Balancing legal protection with administrative efficiency",
+          "AI use in administrative decision-making",
+          "Administrative law in responsive governance"
+        ],
+        "innovativeApplications": [
+          "Legal design initiatives for citizen-friendly information",
+          "Administrative decision support systems",
+          "Open data initiatives for transparency"
+        ]
+      },
+      "risksAndOpportunities": {
+        "identifiedGaps": [
+          "Regulation of algorithmic decision-making",
+          "International administrative cooperation",
+          "Platform-based governance challenges"
+        ],
+        "technologicalChallenges": [
+          "Ensuring digital accessibility for all citizens",
+          "Legal implications of automated decision-making",
+          "Compatibility with new data protection requirements"
+        ],
+        "harmonizationPossibilities": [
+          "Further alignment with European Administrative Procedure Act initiative",
+          "Standardization of procedural provisions across special administrative laws",
+          "Harmonization with civil procedural law for hybrid cases"
+        ]
+      }
+    },
+    "accessibility": {
+      "linguisticAspects": {
+        "readabilityIndex": "Advanced (Flesch-Douma score: 40-50)",
+        "alternativesInPlainLanguage": "Available through rijksoverheid.nl explanatory pages",
+        "multilingualVersions": [
+          "Official Dutch version only",
+          "Unofficial English translation available through eurjus.nl"
+        ]
+      },
+      "inclusivity": {
+        "accessibilityForPeopleWithDisabilities": "Digital versions comply with WCAG 2.1 standards",
+        "culturalContext": "Primarily designed for Dutch legal tradition",
+        "educationalResources": [
+          "University textbooks and courses",
+          "Professional education for civil servants",
+          "Online learning modules by Administrative Justice Council"
+        ]
+      }
+    }
+  }

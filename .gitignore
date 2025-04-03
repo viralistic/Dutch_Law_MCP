@@ -1,0 +1,61 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node modules (if using JavaScript tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Python (if using Python tools)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Build directories
+dist/
+build/
+out/
+
+# Log files
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Personal configuration files
+config.local.json
+*.private.json
+
+# Environment variables
+.env
+.env.local
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Coverage directory
+coverage/
+
+# Local development files
+.netlify
+.vercel

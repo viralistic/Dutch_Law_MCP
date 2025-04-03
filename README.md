@@ -1,4 +1,6 @@
 # Dutch Law MCP (Modern Context Protocol)
+An unofficial MCP server for Dutch Law to get reliable output for your AI agents. Made by Marrallisa Kreijkes
+
 A structured framework for contextualizing, understanding, and applying Dutch legislation, designed for AI agents and legal professionals.
 
 What is MCP?

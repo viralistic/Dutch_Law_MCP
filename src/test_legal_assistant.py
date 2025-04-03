@@ -246,17 +246,16 @@ class LegalAssistant:
         return "\n\n".join(advice_parts)
     
     def _extract_references(self, laws: List[MCPLaw]) -> List[Dict[str, str]]:
-        """Extract specific references from the laws."""
+        """Extract references from laws in a consistent format."""
         references = []
         for law in laws:
-            metadata = law.metadata
             references.append({
-                "name": metadata["name_of_law"],
-                "citation": metadata["citation_title"],
-                "bwb_id": metadata["identification_number"],
-                "domain": metadata["legal_domain"],
-                "entry_force": metadata["date_of_entry_into_force"],
-                "authority": metadata["regulatory_authority"]
+                "name_of_law": law.metadata["name_of_law"],
+                "citation_title": law.metadata["citation_title"],
+                "identification_number": law.metadata["identification_number"],
+                "legal_domain": law.metadata["legal_domain"],
+                "date_of_entry_into_force": law.metadata["date_of_entry_into_force"],
+                "regulatory_authority": law.metadata["regulatory_authority"]
             })
         return references
 
@@ -282,11 +281,11 @@ def main():
         print(f"\nAdvies:\n{result['advice']}")
         print("\nReferenties:")
         for ref in result['references']:
-            print(f"- {ref['name']} ({ref['citation']})")
-            print(f"  BWB ID: {ref['bwb_id']}")
-            print(f"  Domein: {ref['domain']}")
-            print(f"  Inwerkingtreding: {ref['entry_force']}")
-            print(f"  Bevoegd gezag: {ref['authority']}")
+            print(f"- {ref['name_of_law']} ({ref['citation_title']})")
+            print(f"  BWB ID: {ref['identification_number']}")
+            print(f"  Domein: {ref['legal_domain']}")
+            print(f"  Inwerkingtreding: {ref['date_of_entry_into_force']}")
+            print(f"  Bevoegd gezag: {ref['regulatory_authority']}")
         print("="*50)
 
 if __name__ == "__main__":

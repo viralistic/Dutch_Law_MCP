@@ -4,7 +4,7 @@ Command-line interface for the Dutch Legal Assistant.
 """
 import argparse
 import sys
-from legal_assistant import LegalAssistant
+from src.test_legal_assistant import LegalAssistant
 
 def main():
     parser = argparse.ArgumentParser(description='Dutch Legal Assistant - Get legal advice for your situation')
